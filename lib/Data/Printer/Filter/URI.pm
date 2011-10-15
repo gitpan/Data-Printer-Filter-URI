@@ -8,7 +8,7 @@ use warnings 'all';
 use Data::Printer::Filter;
 use Term::ANSIColor;
 
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 
 our @schemes = qw(
@@ -65,7 +65,7 @@ Data::Printer::Filter::URI - pretty-printing URI objects
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
