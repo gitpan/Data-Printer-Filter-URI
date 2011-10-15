@@ -8,7 +8,7 @@ use warnings 'all';
 use Data::Printer::Filter;
 use Term::ANSIColor;
 
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 
 our @schemes = qw(
@@ -43,8 +43,13 @@ our @schemes = qw(
 
 filter "URI::$_" => sub {
     my ($obj, $p) = @_;
-    my $color = $p->{color}{uri};
-    return colored('"' . $obj->as_string . '"', $color // 'bright_yellow');
+
+    my $str = $obj->as_string;
+
+    $str =~ s{^@{[$obj->scheme]}}{colored($obj->scheme, $p->{color}{uri_scheme} // 'bright_green')}e;
+    $str =~ s{@{[$obj->host]}}{colored($obj->host, $p->{color}{uri_host} // 'bold')}e;
+
+    return $str;
 } for @schemes;
 
 1;
@@ -60,7 +65,7 @@ Data::Printer::Filter::URI - pretty-printing URI objects
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -84,7 +89,8 @@ version 0.001
         filters => {
             -external   => [ 'URI' ],
         }, color => {
-            uri         => 'bright_yellow',
+            uri_scheme  => 'bright_green',
+            uri_host    => 'bold',
         },
     };
 

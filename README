@@ -2,7 +2,7 @@ NAME
     Data::Printer::Filter::URI - pretty-printing URI objects
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
     # In your program:
@@ -25,7 +25,8 @@ SYNOPSIS
             filters => {
                 -external   => [ 'URI' ],
             }, color => {
-                uri         => 'bright_yellow',
+                uri_scheme  => 'bright_green',
+                uri_host    => 'bold',
             },
         };
 
