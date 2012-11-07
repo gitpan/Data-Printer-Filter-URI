@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.010;
+use 5.008;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -12,10 +12,13 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "pretty-printing URI objects",
   "AUTHOR" => "Stanislaw Pusep <stas\@sysd.org>",
   "BUILD_REQUIRES" => {
-    "English" => 0,
+    "Data::Printer" => 0,
     "File::Find" => 0,
+    "File::HomeDir::Test" => 0,
     "File::Temp" => 0,
-    "Test::More" => 0
+    "Test::More" => 0,
+    "URI" => 0,
+    "URI::URL" => 0
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -27,11 +30,12 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Data::Printer::Filter" => 0,
     "Term::ANSIColor" => 0,
+    "URI" => "1.60",
     "strict" => 0,
     "utf8" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.003",
+  "VERSION" => "0.004",
   "test" => {
     "TESTS" => "t/*.t"
   }

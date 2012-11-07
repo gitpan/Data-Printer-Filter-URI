@@ -3,12 +3,12 @@ package Data::Printer::Filter::URI;
 
 use strict;
 use utf8;
-use warnings 'all';
+use warnings qw(all);
 
 use Data::Printer::Filter;
 use Term::ANSIColor;
 
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.004'; # VERSION
 
 
 our @schemes = qw(
@@ -39,15 +39,42 @@ our @schemes = qw(
     telnet
     tn3270
     urn
+    urn::oid
 );
 
-filter "URI::$_" => sub {
+filter qq(URI::$_) => sub {
     my ($obj, $p) = @_;
 
     my $str = $obj->as_string;
 
-    $str =~ s{^@{[$obj->scheme]}}{colored($obj->scheme, $p->{color}{uri_scheme} // 'bright_green')}e;
-    $str =~ s{@{[$obj->host]}}{colored($obj->host, $p->{color}{uri_host} // 'bold')}e;
+    $str =~ s{^
+        \b
+        @{[$obj->scheme]}
+        \b
+    }{
+        colored(
+            $obj->scheme,
+            exists($p->{color}{uri_scheme})
+                ? $p->{color}{uri_scheme}
+                : q(bright_green)
+        )
+    }ex if defined $obj->scheme;
+
+    $str =~ s{
+        \b
+        \Q
+        @{[$obj->host]}
+        \E
+        \b
+    }{
+        colored(
+            $obj->host,
+            exists($p->{color}{uri_host})
+                ? $p->{color}{uri_host}
+                : q(bold)
+        )
+    }ex if $obj->can(q(host))
+        and defined $obj->host;
 
     return $str;
 } for @schemes;
@@ -55,6 +82,7 @@ filter "URI::$_" => sub {
 1;
 
 __END__
+
 =pod
 
 =encoding utf8
@@ -65,7 +93,7 @@ Data::Printer::Filter::URI - pretty-printing URI objects
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -215,10 +243,9 @@ Stanislaw Pusep <stas@sysd.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Stanislaw Pusep.
+This software is copyright (c) 2012 by Stanislaw Pusep.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

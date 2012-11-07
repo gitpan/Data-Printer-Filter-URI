@@ -7,12 +7,15 @@ Makefile.PL
 README
 dist.ini
 lib/Data/Printer/Filter/URI.pm
+perlcritic.rc
 t/00-compile.t
+t/00-load.t
+t/01-check.t
 t/author-critic.t
+t/author-test-eol.t
 t/release-cpan-changes.t
 t/release-dist-manifest.t
 t/release-distmeta.t
-t/release-eol.t
 t/release-kwalitee.t
 t/release-minimum-version.t
 t/release-mojibake.t
@@ -22,5 +25,6 @@ t/release-pod-linkcheck.t
 t/release-pod-syntax.t
 t/release-portability.t
 t/release-synopsis.t
+t/release-test-version.t
 t/release-unused-vars.t
 weaver.ini

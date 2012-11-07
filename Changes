@@ -1,7 +1,34 @@
-Changelog for Data::Printer::Filter::URI (full version at https://github.com/creaktive/Data-Printer-Filter-URI/commits/master/)
+Changelog for Data-Printer-Filter-URI
 
-0.003     2011-10-15
+0.004 2012-11-07T19:02:06
+ [Stanislaw Pusep <creaktive@gmail.com>]
+ - bugs fixes; tests added
 
-0.002     2011-10-15
+ - Changes
 
-0.001     2011-10-14
+
+v0.003 2011-10-15T19:45:00
+ [Stanislaw Pusep <creaktive@gmail.com>]
+ - perl >= 5.010
+
+ - Changes
+
+
+v0.002 2011-10-15T15:26:58
+ [Stanislaw Pusep <creaktive@gmail.com>]
+ - separate colors for scheme/host
+
+
+ [Stanislaw Pusep <stanislav.poussep@buscape-inc.com>]
+ - Changes
+
+
+v0.001 2011-10-14T21:12:46
+ [Stanislaw Pusep <stanislav.poussep@buscape-inc.com>]
+ - Dist::Zilla[2]
+
+ - Dist::Zilla
+
+ - INIT
+
+

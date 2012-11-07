@@ -3,14 +3,17 @@ abstract: 'pretty-printing URI objects'
 author:
   - 'Stanislaw Pusep <stas@sysd.org>'
 build_requires:
-  English: 0
+  Data::Printer: 0
   File::Find: 0
+  File::HomeDir::Test: 0
   File::Temp: 0
   Test::More: 0
+  URI: 0
+  URI::URL: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112621'
+generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -19,7 +22,8 @@ name: Data-Printer-Filter-URI
 requires:
   Data::Printer::Filter: 0
   Term::ANSIColor: 0
-  perl: 5.010
+  URI: 1.60
+  perl: 5.008
   strict: 0
   utf8: 0
   warnings: 0
@@ -27,4 +31,4 @@ resources:
   bugtracker: https://github.com/creaktive/Data-Printer-Filter-URI/issues
   homepage: https://github.com/creaktive/Data-Printer-Filter-URI
   repository: git://github.com/creaktive/Data-Printer-Filter-URI.git
-version: 0.003
+version: 0.004
