@@ -8,7 +8,7 @@ use warnings qw(all);
 use Data::Printer::Filter;
 use Term::ANSIColor;
 
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 
 our @schemes = qw(
@@ -42,10 +42,10 @@ our @schemes = qw(
     urn::oid
 );
 
-filter qq(URI::$_) => sub {
+filter $_ => sub {
     my ($obj, $p) = @_;
 
-    my $str = $obj->as_string;
+    my $str = qq($obj);
 
     $str =~ s{^
         \b
@@ -77,7 +77,7 @@ filter qq(URI::$_) => sub {
         and defined $obj->host;
 
     return $str;
-} for @schemes;
+} for q(Mojo::URL), map +qq(URI::$_), @schemes;
 
 1;
 
@@ -93,7 +93,7 @@ Data::Printer::Filter::URI - pretty-printing URI objects
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 

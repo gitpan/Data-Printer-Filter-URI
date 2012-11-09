@@ -29,7 +29,7 @@ my @uri = map { chomp; URI->new($_) } <DATA>;
 push @uri, url(q(http://ifconfig.me));
 
 for my $uri (@uri) {
-    is(p($uri), $uri->as_string, $uri->canonical);
+    is(p($uri), qq($uri), $uri->canonical);
 
     my $scheme = $uri->scheme;
     delete $cover{$scheme};
@@ -38,7 +38,7 @@ for my $uri (@uri) {
 is(%cover, 0, q(all schemes covered));
 diag $_ for sort keys %cover;
 
-done_testing(1 + @uri);
+done_testing 1 + @uri;
 
 # https://en.wikipedia.org/wiki/Uniform_resource_name
 # ack -h --output '$2' "\bURI->new\(([\"'])(\w+:.+?)\1\)" ~/URI-1.60/t/ | sort -u

@@ -1,6 +1,13 @@
 Changelog for Data-Printer-Filter-URI
 
-0.004 2012-11-07T19:02:06
+0.005 2012-11-09T20:33:04
+ [Stanislaw Pusep <creaktive@gmail.com>]
+ - (optional) test for Mojo::URL
+
+ - Mojo::URL support
+
+
+v0.004 2012-11-07T19:01:30
  [Stanislaw Pusep <creaktive@gmail.com>]
  - bugs fixes; tests added
 

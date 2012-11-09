@@ -2,7 +2,7 @@ NAME
     Data::Printer::Filter::URI - pretty-printing URI objects
 
 VERSION
-    version 0.004
+    version 0.005
 
 SYNOPSIS
     # In your program:
