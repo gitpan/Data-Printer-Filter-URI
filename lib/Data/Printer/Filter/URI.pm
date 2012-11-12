@@ -8,7 +8,7 @@ use warnings qw(all);
 use Data::Printer::Filter;
 use Term::ANSIColor;
 
-our $VERSION = '0.005'; # VERSION
+our $VERSION = '0.006'; # VERSION
 
 
 our @schemes = qw(
@@ -31,7 +31,6 @@ our @schemes = qw(
     rsync
     rtsp
     rtspu
-    sftp
     sip
     sips
     snews
@@ -62,9 +61,7 @@ filter $_ => sub {
 
     $str =~ s{
         \b
-        \Q
-        @{[$obj->host]}
-        \E
+        \Q@{[$obj->host]}\E
         \b
     }{
         colored(
@@ -77,7 +74,7 @@ filter $_ => sub {
         and defined $obj->host;
 
     return $str;
-} for q(Mojo::URL), map +qq(URI::$_), @schemes;
+} for qw(Mojo::URL URI::scp URI::sftp), map +qq(URI::$_), @schemes;
 
 1;
 
@@ -93,7 +90,7 @@ Data::Printer::Filter::URI - pretty-printing URI objects
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -125,7 +122,7 @@ version 0.005
 =head1 DESCRIPTION
 
 This is a filter plugin for L<Data::Printer>.
-It filters through several L<URI> manipulation classes and displays the L<URI> as a string.
+It filters through several L<URI> manipulation classes and displays the L<URI> as a fancy string.
 
 =head2 Parsed Protocols
 
@@ -205,7 +202,11 @@ rtspu
 
 =item *
 
-sftp
+scp (if L<URI::scp> is present)
+
+=item *
+
+sftp (if L<URI::sftp> is present)
 
 =item *
 
@@ -236,6 +237,8 @@ tn3270
 urn
 
 =back
+
+L<Mojo::URL> is also supported.
 
 =head1 AUTHOR
 
