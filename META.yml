@@ -31,4 +31,4 @@ resources:
   bugtracker: https://github.com/creaktive/Data-Printer-Filter-URI/issues
   homepage: https://github.com/creaktive/Data-Printer-Filter-URI
   repository: git://github.com/creaktive/Data-Printer-Filter-URI.git
-version: 0.006
+version: 0.007

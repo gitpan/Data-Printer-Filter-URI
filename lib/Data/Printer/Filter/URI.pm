@@ -8,7 +8,7 @@ use warnings qw(all);
 use Data::Printer::Filter;
 use Term::ANSIColor;
 
-our $VERSION = '0.006'; # VERSION
+our $VERSION = '0.007'; # VERSION
 
 
 our @schemes = qw(
@@ -74,7 +74,12 @@ filter $_ => sub {
         and defined $obj->host;
 
     return $str;
-} for qw(Mojo::URL URI::scp URI::sftp), map +qq(URI::$_), @schemes;
+} for qw(Mojo::URL), map +qq(URI::$_), @schemes, qw(
+    scp
+    sftp
+    urn::isbn
+    urn::uuid
+);
 
 1;
 
@@ -90,7 +95,7 @@ Data::Printer::Filter::URI - pretty-printing URI objects
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 

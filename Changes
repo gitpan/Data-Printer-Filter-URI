@@ -1,6 +1,11 @@
 Changelog for Data-Printer-Filter-URI
 
-0.006 2012-11-12T13:47:20
+0.007 2012-11-29T20:44:59
+ [Stanislaw Pusep <creaktive@gmail.com>]
+ - fix the compatibility with URI::urn::uuid
+
+
+v0.006 2012-11-12T13:46:11
  [Stanislaw Pusep <creaktive@gmail.com>]
  - hostname boldification fix; proper scp/sftp support
 
