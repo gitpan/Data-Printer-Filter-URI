@@ -1,17 +1,20 @@
 NAME
+
     Data::Printer::Filter::URI - pretty-printing URI objects
 
 VERSION
-    version 0.007
+
+    version 0.008
 
 SYNOPSIS
+
     # In your program:
 
         use Data::Printer filters => {
             -external => [ 'URI' ],
         };
 
-    # or, in your ".dataprinter" file:
+    # or, in your .dataprinter file:
 
         {
             filters => {
@@ -31,71 +34,75 @@ SYNOPSIS
         };
 
 DESCRIPTION
+
     This is a filter plugin for Data::Printer. It filters through several
     URI manipulation classes and displays the URI as a fancy string.
 
-  Parsed Protocols
-    *   data
+ Parsed Protocols
 
-    *   file
+      * data
 
-    *   ftp
+      * file
 
-    *   gopher
+      * ftp
 
-    *   http
+      * gopher
 
-    *   https
+      * http
 
-    *   ldap
+      * https
 
-    *   ldapi
+      * ldap
 
-    *   ldaps
+      * ldapi
 
-    *   mailto
+      * ldaps
 
-    *   mms
+      * mailto
 
-    *   news
+      * mms
 
-    *   nntp
+      * news
 
-    *   pop
+      * nntp
 
-    *   rlogin
+      * pop
 
-    *   rsync
+      * rlogin
 
-    *   rtsp
+      * rsync
 
-    *   rtspu
+      * rtsp
 
-    *   scp (if URI::scp is present)
+      * rtspu
 
-    *   sftp (if URI::sftp is present)
+      * scp (if URI::scp is present)
 
-    *   sip
+      * sftp (if URI::sftp is present)
 
-    *   sips
+      * sip
 
-    *   snews
+      * sips
 
-    *   ssh
+      * snews
 
-    *   telnet
+      * ssh
 
-    *   tn3270
+      * telnet
 
-    *   urn
+      * tn3270
+
+      * urn
 
     Mojo::URL is also supported.
 
 AUTHOR
+
     Stanislaw Pusep <stas@sysd.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Stanislaw Pusep.
+
+    This software is copyright (c) 2014 by Stanislaw Pusep.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
